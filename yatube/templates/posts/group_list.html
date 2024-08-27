@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<p>{{ text }}. </p>
+<p>Группы отфильтрованы по {{ filter }}.</p>
+<p>
+    <a href = "{% url 'posts:start_page' %}">
+        Главная страница.
+    </a>
+</p>
+{% endblock %}
+
