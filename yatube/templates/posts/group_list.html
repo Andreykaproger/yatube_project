@@ -1,9 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
-<p>{{ text }}. </p>
-<p>Группы отфильтрованы по {{ filter }}.</p>
+<p>Записи группы: {{ group }}.</p>
+
+{% for post in posts %}
+  <ul>
+    <li>
+      Author: {{ post.author.get_full_name }}
+    </li>
+    <li>
+      Date publication: {{ post.pub_date|date:"d E Y" }}
+    </li>
+  </ul>
+  <p> {{ post.text }} </p>
+  {% if not forloop.last %}  <hr>{% endif %}
+
+{% endfor %}
+
 <p>
-    <a href = "{% url 'posts:start_page' %}">
+    <a href = "{% url 'posted:start_page' %}">
         Главная страница.
     </a>
 </p>

@@ -1,6 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
-  {{ title }}
+<b> Записи всех групп </b>
+
+{% for post in posts %}
+  <ul>
+    <li>
+      Author: {{ post.author.get_full_name }}
+    </li>
+    <li>
+      Date publication: {{ post.pub_date|date:"d E Y" }}
+    </li>
+  </ul>
+  <p> {{ post.text }} </p>
+  <a href="{% url 'posted:groups' post.group.slug %}"> All records of group</a>
+  {% if not forloop.last %}  <hr>{% endif %}
+
+{% endfor %}
+
 {% endblock %}
 <!--<!DOCTYPE html>-->
 <!--<html lang="ru">-->
