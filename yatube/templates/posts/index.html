@@ -10,6 +10,9 @@
     <li>
       Date publication: {{ post.pub_date|date:"d E Y" }}
     </li>
+    <li>
+      Group : {{ post.group }}
+    </li>
   </ul>
   <p> {{ post.text }} </p>
   <a href="{% url 'posted:groups' post.group.slug %}"> All records of group</a>
